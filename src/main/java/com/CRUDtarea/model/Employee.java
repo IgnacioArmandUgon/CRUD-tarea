@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity //Esta tabla representará una entidad, una tabla en la base de datos
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //El motor de base de datos autogenera el valor
     private Long id;
 
     @Column(length = 25, nullable = false)
@@ -16,22 +16,22 @@ public class Employee {
     private String lastName;
 
     @Column(length = 10, nullable = false, unique = true)
-    private String employeeId;
+    private String employeeid;
 
     public Employee(){
     }
 
-    public Employee(String firstName, String lastName, String employeeId) {
+    public Employee(String firstName, String lastName, String employeeid) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.employeeId = employeeId;
+        this.employeeid = employeeid;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,12 +51,12 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
+    public String getEmployeeid() {
+        return employeeid;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployeeid(String employeeid) {
+        this.employeeid = employeeid;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id;
+        return Objects.equals(id, employee.id);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Employee {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", employeeId='" + employeeId + '\'' +
+                ", employeeId='" + employeeid + '\'' +
                 '}';
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployeeJpaRepository extends JpaRepository<Employee, Long> {
-    Employee findByEmployeeid(String id);
+public interface EmployeeJpaRepository extends JpaRepository<Employee, Long> { //Entidad e identificador
 
+    Employee findByEmployeeid(String employeeid);
 }
